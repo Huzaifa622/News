@@ -19,3 +19,12 @@
     margin: 24px;
     color: rgb(0, 162, 255);
 }
+a{
+    text-decoration: none;
+}
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

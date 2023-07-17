@@ -2,16 +2,17 @@ import React from 'react'
 import ActionAreaCard from '@/components/Card';
 import { useGlobalContext } from '@/components/news';
 
+import CircularProgress from '@mui/joy/CircularProgress';
+
+
 const News = () => {
     const {articles , isLoading, totalResults} = useGlobalContext();
-
-    
-   
-    if(isLoading){
-        return <h1>Loading.....</h1>
-    }
+    // if(isLoading){
+    //     return <h1 className='loading'><CircularProgress variant="soft" /></h1>
+    // }
     return(
       <>
+      <div>{isLoading&&<h1 className='loading'><CircularProgress variant="soft" /></h1>}</div>
 
      <div className='totalNews'><h3>Total News:{totalResults}</h3></div>
      <div className='article-container'> 
@@ -19,7 +20,7 @@ const News = () => {
       return (
        
           <div className='article-card' >
-         <ActionAreaCard  onclick={()=>newsPage} image={article.urlToImage} name={article.source.name} title={article.title} url={article.url}/>
+         <ActionAreaCard   image={article.urlToImage} name={article.source.name} title={article.title} url={article.url}/>
        </div>
       )
     })}

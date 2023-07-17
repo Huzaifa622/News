@@ -11,7 +11,8 @@ import Link from 'next/link';
 export default function ActionAreaCard(props) {
     // const {articles } = useGlobalContext;
   return (
-    <Card onClick={()=><Link>{props.url}</Link>} sx={{ maxWidth: 345 }}>
+    <Link href={props.url} target="_blank">
+    <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -29,5 +30,6 @@ export default function ActionAreaCard(props) {
         </CardContent>
       </CardActionArea>
     </Card>
+    </Link>
   );
 }
