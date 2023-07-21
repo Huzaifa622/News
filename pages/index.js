@@ -8,7 +8,7 @@ export default function Home() {
   const [theme , setTheme] = useState(true);
 const changeTheme = () =>{
 setTheme(!theme);
-console.log(theme);
+// console.log(theme);
 }
 
   const darkTheme = createTheme({
