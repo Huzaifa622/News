@@ -9,6 +9,8 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { useGlobalContext } from '../news';
+import CustomizedSwitches from '../switch';
+import { useState } from 'react';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -53,8 +55,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchAppBar() {
+export default function SearchAppBar({changingTheme}) {
   const {query, searchNews} = useGlobalContext();
+
+const handleTheme = () =>{
+  changingTheme();
+ 
+}
+  
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -76,7 +85,7 @@ export default function SearchAppBar() {
           >
             The News 
           </Typography>
-          
+            <CustomizedSwitches themeChangeFromChild={handleTheme}/>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />

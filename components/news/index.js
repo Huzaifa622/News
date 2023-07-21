@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer } from "react";
+import React, { useContext, useEffect, useReducer ,useState} from "react";
 import reducer from "@/pages/reducer";
 
 const API = 'https://newsapi.org/v2/everything?';
@@ -13,8 +13,6 @@ const initialState = {
 
 const AppProvider = ({children}) => {
    
-
-
     const [state, dispatch] = useReducer(reducer, initialState)
 
   
@@ -42,7 +40,7 @@ const AppProvider = ({children}) => {
         search: searchUpdate
       })
     }
-    
+ 
     useEffect(() => {
       const timeOut = setTimeout(() => {
         let myQuery = state.query || initialState.query;
@@ -60,7 +58,7 @@ const AppProvider = ({children}) => {
 
   return (
     <>
-    <AppContext.Provider value= {{...state, searchNews}}>
+    <AppContext.Provider value= {{...state, searchNews }}>
 
         {children}
     </AppContext.Provider>

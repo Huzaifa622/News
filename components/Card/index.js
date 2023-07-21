@@ -12,7 +12,7 @@ export default function ActionAreaCard(props) {
     // const {articles } = useGlobalContext;
   return (
     <Link href={props.url} target="_blank">
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} >
       <CardActionArea>
         <CardMedia
           component="img"

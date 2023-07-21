@@ -2,7 +2,7 @@ import React from 'react'
 import ActionAreaCard from '@/components/Card';
 import { useGlobalContext } from '@/components/news';
 
-import CircularProgress from '@mui/joy/CircularProgress';
+import Variants from '@/components/loading';
 
 
 const News = () => {
@@ -12,14 +12,14 @@ const News = () => {
     // }
     return(
       <>
-      <div>{isLoading&&<h1 className='loading'><CircularProgress variant="soft" /></h1>}</div>
-
      <div className='totalNews'><h3>Total News:{totalResults}</h3></div>
+      <div>{isLoading&&<h1 className='loading'><Variants/></h1>}</div>
+
      <div className='article-container'> 
-     {articles && articles.map((article)=>{
+     {articles && articles.map((article , index)=>{
       return (
        
-          <div className='article-card' >
+          <div className='article-card' key={index}>
          <ActionAreaCard   image={article.urlToImage} name={article.source.name} title={article.title} url={article.url}/>
        </div>
       )
