@@ -68,8 +68,6 @@ const AppProvider = ({children}) => {
         if (myQuery === '') {
           myQuery = 'tesla';
         }
-
-
         fetchApiData(`${API}q=${myQuery}&apiKey=${APIKey}`);
       }, 1000);
       console.log(APIKey)

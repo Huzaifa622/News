@@ -1,1 +1,0 @@
-curl https://meowfacts.herokuapp.com/

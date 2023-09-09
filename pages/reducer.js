@@ -14,6 +14,13 @@ const reducer = (state , action) =>{
             articles: action.payload.articles,
             totalResults: action.payload.totalResults
            }
+           case 'SEARCH_NEWS':
+            return {
+              isLoading : false ,
+              query : action.search
+
+
+            }
 
     }
     return state;
