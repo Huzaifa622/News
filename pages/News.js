@@ -13,6 +13,7 @@ const News = () => {
     return(
       <>
      <div className='totalNews'><h3>Total News:{totalResults}</h3></div>
+   
       <div>{isLoading&&<h1 className='loading'><Variants/></h1>}</div>
 
      <div className='article-container'> 

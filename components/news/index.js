@@ -2,13 +2,15 @@ import React, { useContext, useEffect, useReducer ,useState} from "react";
 import reducer from "@/pages/reducer";
 
 const API = 'https://newsapi.org/v2/everything?';
-const APIKey = '7859f4a3896a4e4aa7ad4b2f4eb9beba';
+const APIKey = process.env.API_KEY;
+console.log(APIKey)
 const AppContext = React.createContext();
 const initialState = {
   isLoading: true,
   query: '',
   totalResults: 0,
-  articles : []
+  articles : [],
+  page : 1
 }
 
 const AppProvider = ({children}) => {
@@ -24,7 +26,7 @@ const AppProvider = ({children}) => {
 
        const res = await fetch(url);
        const data = await res.json();
-       console.log(data);  
+       
        dispatch({
        type: 'GET_NEWS',
        payload: {
@@ -41,6 +43,8 @@ const AppProvider = ({children}) => {
       })
     }
  
+
+
     useEffect(() => {
       const timeOut = setTimeout(() => {
         let myQuery = state.query || initialState.query;
@@ -49,10 +53,8 @@ const AppProvider = ({children}) => {
         }
         fetchApiData(`${API}q=${myQuery}&apiKey=${APIKey}`);
       }, 1000);
-      console.log(timeOut);
-
     return ()=> clearTimeout(timeOut);
-    }, [state.query])
+    }, [state.query,state.page])
     
 
 
